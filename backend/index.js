@@ -2,18 +2,23 @@ const serverless = require('serverless-http');
 const express = require('express')
 const app = express()
 
-app.get('/', function (req, res) {
-  const currentSalary = parseInt(req.query.num1);
-  const monthlyThreshold = 2000;
-  const monthlySalary = currentSalary/12;
-  const aboveThreshold = monthlySalary-monthlyThreshold;
-  const interest = 0.09;
-  const monthlyInterest = aboveThreshold*interest;
-  const yearlyInterest = monthlyInterest*12;
-  const dueSum = yearlyInterest*30
+app.get('/calculate', function (req, res) {
+  console.log('foo')
+  try {
+    const currentSalary = parseInt(req.query.num1);
+    const monthlyThreshold = 2000;
+    const monthlySalary = currentSalary/12;
+    const aboveThreshold = monthlySalary-monthlyThreshold;
+    const interest = 0.09;
+    const monthlyInterest = aboveThreshold*interest;
+    const yearlyInterest = monthlyInterest*12;
+    const dueSum = yearlyInterest*30
 
-
-  res.send({dueSum: dueSum})
+    res.send({dueSum: dueSum})
+  } catch (err) {
+    console.error(err)
+    res.status(500)
+  }
 })
 
 // app.get('/:num1/:num2', function (req, res) {
