@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import {Form} from '../components/Calculate'
 
 export default function Home() {
   return (
@@ -16,19 +17,8 @@ export default function Home() {
           Welcome to your Student Loan Calculator
         </h1>
 
-        <label for="currentSalary">Current Salary: 
-        <input type="text" placeholder="30000" id="name" name="name" 
-             size="20"></input>
-           </label>
+        <Form />
 
-           <div>
-             <button>Submit</button>
-           </div>
-
-          
-
-        
-        
       </main>
 
       <footer className={styles.footer}>
