@@ -4,7 +4,6 @@ import {useState} from 'react'
 export const Form = () => {
     const [years, setYears]= useState(0)
     const calculateSum = async event => {
-        console.log(event)
         event.preventDefault()
 
         const res = await fetch(
@@ -12,20 +11,24 @@ export const Form = () => {
         
             const result = await res.json();
             setYears(result.dueSum)
+            
     }
    
 
     return (
     <>
         <form onSubmit={calculateSum}>
-            <label htmlFor="currentSalary">Current Salary: </label>
-            <input type="text" placeholder="30000" name="currentSalary" id="currentSalary"
-                size="20" /> 
-            <button type='submit'>Calculate</button>
-            <label htmlFor="Debt">Debt </label>
-            <input type="text" placeholder="30000" name="Debt" id="Debt"
-                size="20" /> 
-            <button type='submit'>Calculate</button>
+            <ul>
+                <li><label htmlFor="currentSalary">Current Salary: </label>
+                <input type="text" placeholder="30000" name="currentSalary" id="currentSalary" /> </li>
+                    
+                <li><label htmlFor="Debt">Debt: </label>
+                <input type="text" placeholder="30000" name="Debt" id="Debt"/> </li>
+                
+                
+                <button type='submit'>Calculate</button> 
+
+            </ul>
         </form>
             
         <h1>{years}</h1>

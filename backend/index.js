@@ -6,6 +6,17 @@ app.get('/calculate', function (req, res) {
   console.log('foo')
   try {
     const currentSalary = parseInt(req.query.num1);
+    const calculateTax = () => { 
+      if (currentSalary>12500) {
+        ((currentSalary-12500)*0.2)
+      } else if (currentSalary>50000) {
+        ((currentSalary-12500)*0.4)
+      } else {
+        0
+      }
+    return calculateTax;
+  };
+    const grossPay = currentSalary-calculateTax;
     const monthlyThreshold = 2000;
     const monthlySalary = currentSalary/12;
     const aboveThreshold = monthlySalary-monthlyThreshold;
@@ -25,14 +36,10 @@ app.get('/calculate', function (req, res) {
 //   const num1 = parseInt(req.params.num1)
 //   const num2 = parseInt(req.params.num2)
 //   const total = num1 + num2
-
 //   res.send({total: total})
 // })
-
 // dev/?num1=51&num2=69
-
 // dev/51/69
-
 module.exports.handler = serverless(app);
 
 
