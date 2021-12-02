@@ -5,12 +5,13 @@ export const Form = () => {
     const [years, setYears]= useState(0)
     const calculateSum = async event => {
         event.preventDefault()
-
+        
         const res = await fetch(
             `http://localhost:3000/calculate/?num1=${event.target.currentSalary.value}&num2=${event.target.Debt.value}`)
         
             const result = await res.json();
-            setYears(result.dueSum)
+            setYears(result.dueSum);
+            
             
     }
    
