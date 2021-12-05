@@ -45,6 +45,12 @@
   font-size: 4rem;
 }
 
+.subtitle{
+  margin: 0;
+  text-align: justify;
+  color: grey;
+}
+
 .title,
 .description {
   text-align: center;

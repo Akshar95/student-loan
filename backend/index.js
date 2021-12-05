@@ -2,46 +2,49 @@ const serverless = require('serverless-http');
 const express = require('express')
 const app = express()
 
+const yearlyThreshold = 27295;
+const monthlyThreshold = 2274;
+const interest = 0.09;
+
 const calculateDueSum = (salary) => {
   const currentSalary = parseInt(salary);
-  const actualIncome = currentSalary-tax();
-  const monthlyThreshold = 2000;
-  const monthlySalary = actualIncome/12;
-  const aboveThreshold = monthlySalary-monthlyThreshold;
-  const interest = 0.09;
-  const monthlyInterest = aboveThreshold*interest;
+  const monthlySalary = currentSalary/12;
+ //const actualIncome = currentSalary-tax(currentSalary);
+  let aboveMonthlyThreshold = monthlySalary-monthlyThreshold;
+  let monthlyInterest = aboveMonthlyThreshold*interest;
   const yearlyInterest = monthlyInterest*12;
   const dueSum = yearlyInterest*30
 
-  return dueSum;
+  return {dueSum, aboveMonthlyThreshold};
 } 
 
 
-
+const tax = (currentSalary) => { 
+  const personalAllowance = 12570;
+  let x = currentSalary - personalAllowance;
+    if (x > 0 && x <= 37700 ){
+      x = x*0.2;
+    } else if (x>37700){
+      x = (37700*0.2) + ((x-37700)*0.4)
+    } else {
+      x = 0
+    }
+    return x;
+};
 
 app.get('/calculate', function (req, res) {
   console.log('foo')
   try {
-    const dueSum = calculateDueSum(req.query.num1);
-    res.send({dueSum: dueSum})
+    const {dueSum, aboveMonthlyThreshold}  = calculateDueSum(req.query.num1);
+    const calculatedTax = tax(req.query.num1);
+    res.json({dueSum: dueSum, tax: calculatedTax, aboveMonthlyThreshold})
   } catch (err) {
     console.error(err)
     res.status(500)
   }
 })
 
-const tax = (currentSalary) => { 
-  const personalAllowance = 12570;
-  let x = currentSalary - personalAllowance;
-  if (x > 0 && x <= 37700 ){
-    x = x*0.8;
-  } else if (x>37700){
-    x = (37700*0.8) + ((x-37700)*0.6)
-  } else {
-    x = 0
-  }
-  return x;
-};
+
 
 // app.get('/:num1/:num2', function (req, res) {
 //   const num1 = parseInt(req.params.num1)

@@ -13,10 +13,8 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Student Loan
-        </h1>
-
+        <h1 className={styles.title}> Student Loan</h1>
+        <h2 className={styles.subtitle}>calculator</h2>
         <Form />
 
       </main>
