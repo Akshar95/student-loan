@@ -55,8 +55,6 @@ app.get('/calculate', function (req, res) {
 
 module.exports = {handler : serverless(app), tax: tax, calculateDueSum: calculateDueSum};
 
-// module.exports = { name: "akshar"}
-// module.exports.name = "akshar"
 /***
  * query parameter
  * json body in api
