@@ -4,7 +4,7 @@ import styles from './Calculate.module.css'
 
 export const Form = () => {
     const [years, setYears]= useState(0)
-    const [tax, setTax]= useState(0)
+    const [dueSum, setDueSum]= useState(0)
    // const [monthlyInterest, setMonthlyInterest] = useState(0)
     const calculateSum = async event => {
         event.preventDefault()
