@@ -21,15 +21,14 @@ const calculateDueSum = (salary) => {
 
 const tax = (currentSalary) => { 
   const personalAllowance = 12570;
-  let x = currentSalary - personalAllowance;
-    if (x > 0 && x <= 37700 ){
-      x = x*0.2;
-    } else if (x>37700){
-      x = (37700*0.2) + ((x-37700)*0.4)
-    } else {
-      x = 0
+  const taxableIncome= currentSalary - personalAllowance;
+    if (taxableIncome > 0 && taxableIncome <= 37700 ){
+      return  taxableIncome*0.2;
+    } else if (taxableIncome>37700){
+      return = (37700*0.2) + ((taxableIncome-37700)*0.4)
     }
-    return x;
+      return 0 
+  
 };
 
 app.get('/calculate', function (req, res) {
