@@ -14,7 +14,7 @@ export const Form = () => {
         
             const result = await res.json();
             //setMonthlyInterest(result.monthlyInterest); 
-            setYears(result.dueSum);  
+            setDueSum(result.dueSum);  
             setTax(result.tax);  
              
     }
