@@ -32,7 +32,6 @@ const tax = (currentSalary) => {
 };
 
 app.get('/calculate', function (req, res) {
-  console.log('foo')
   try {
     const {dueSum, aboveMonthlyThreshold}  = calculateDueSum(req.query.num1);
     const calculatedTax = tax(req.query.num1);
