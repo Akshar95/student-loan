@@ -10,8 +10,8 @@ const calculateDueSum = (salary) => {
   const currentSalary = parseInt(salary);
   const monthlySalary = currentSalary/12;
  //const actualIncome = currentSalary-tax(currentSalary);
-  let aboveMonthlyThreshold = monthlySalary-monthlyThreshold;
-  let monthlyInterest = aboveMonthlyThreshold*interest;
+  const aboveMonthlyThreshold = monthlySalary-monthlyThreshold;
+  const monthlyInterest = aboveMonthlyThreshold*interest;
   const yearlyInterest = monthlyInterest*12;
   const dueSum = yearlyInterest*30
 
