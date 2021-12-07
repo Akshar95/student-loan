@@ -3,7 +3,6 @@ import {useState} from 'react'
 import styles from './Calculate.module.css'
 
 export const Form = () => {
-    const [years, setYears]= useState(0)
     const [dueSum, setDueSum]= useState(0)
    // const [monthlyInterest, setMonthlyInterest] = useState(0)
     const calculateSum = async event => {
@@ -15,7 +14,7 @@ export const Form = () => {
             const result = await res.json();
             //setMonthlyInterest(result.monthlyInterest); 
             setDueSum(result.dueSum);  
-            setTax(result.tax);  
+              
              
     }
 
@@ -34,9 +33,8 @@ export const Form = () => {
             </ul>
         </form>
             
-        <h1>Amount due over next 30 years: {years}</h1>
-        <h1> Tax: {tax} </h1>
-        <h1> Monthly Interest </h1>
+        <h1>Amount due over next 30 years: {dueSum}</h1>
+        
         </>
     )
 }

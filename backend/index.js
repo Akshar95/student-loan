@@ -25,7 +25,7 @@ const tax = (currentSalary) => {
     if (taxableIncome > 0 && taxableIncome <= 37700 ){
       return  taxableIncome*0.2;
     } else if (taxableIncome>37700){
-      return = (37700*0.2) + ((taxableIncome-37700)*0.4)
+      return (37700*0.2) + ((taxableIncome-37700)*0.4)
     }
       return 0 
   
