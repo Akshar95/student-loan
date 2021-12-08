@@ -8,9 +8,8 @@ test ('calculates tax for less than 40000  to equal 5486', () => {
     expect(tax(40000)).toBe(5486)
 });
 
-test ('calculates dueSum for 40000 to equal 34514', () => {
-    expect(actualIncome(40000)).toBe(34514)
-});
-
+test ('calculate debt componded by interst over 30 years', ()=> {
+    expect(debtCompound(44000)).toBe(59757)
+})
 
 

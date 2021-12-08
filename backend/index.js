@@ -13,10 +13,15 @@ const calculateDueSum = (salary) => {
   const aboveMonthlyThreshold = monthlySalary-monthlyThreshold;
   const monthlyInterest = aboveMonthlyThreshold*interest;
   const yearlyInterest = monthlyInterest*12;
-  const dueSum = yearlyInterest*30
+  const dueSum = Math.round(yearlyInterest*30)
 
   return {dueSum, aboveMonthlyThreshold};
 } 
+
+// const debtCompound = () => {
+//   const currentDebt = parseInt(req.query.num2);
+  
+// }
 
 
 const tax = (currentSalary) => { 
@@ -35,6 +40,7 @@ app.get('/calculate', function (req, res) {
   try {
     const {dueSum, aboveMonthlyThreshold}  = calculateDueSum(req.query.num1);
     const calculatedTax = tax(req.query.num1);
+    // const debtCompound = debtCompound(req.query.num2);
     res.json({dueSum: dueSum, tax: calculatedTax, aboveMonthlyThreshold})
   } catch (err) {
     console.error(err)

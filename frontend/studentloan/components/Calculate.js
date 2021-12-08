@@ -4,7 +4,8 @@ import styles from './Calculate.module.css'
 
 export const Form = () => {
     const [dueSum, setDueSum]= useState(0)
-   // const [monthlyInterest, setMonthlyInterest] = useState(0)
+    const [aboveMonthlyThreshold, setaboveMonthlyThreshold] = useState(0)
+    // const [debtCompound, setdebtCompound] = useState(0)
     const calculateSum = async event => {
         event.preventDefault()
         
@@ -12,8 +13,10 @@ export const Form = () => {
             `http://localhost:3000/calculate/?num1=${event.target.currentSalary.value}&num2=${event.target.currentDebt.value}`)
         
             const result = await res.json();
-            //setMonthlyInterest(result.monthlyInterest); 
+            
             setDueSum(result.dueSum);  
+            setaboveMonthlyThreshold(result.aboveMonthlyThreshold);
+            // setdebtCompound(result.debtCompound);
               
              
     }
@@ -34,6 +37,8 @@ export const Form = () => {
         </form>
             
         <h1>Amount due over next 30 years: {dueSum}</h1>
+        <h1>Above monthly Threshold {aboveMonthlyThreshold}</h1>
+        {/* <h1>Debt Amount{debtCompound}</h1> */}
         
         </>
     )
