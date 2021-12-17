@@ -10,8 +10,9 @@ export const Form = () => {
     event.preventDefault();
 
     const res = await fetch(
-      `http://localhost:3000/calculate/?num1=${event.target.currentSalary.value}&num2=${event.target.currentDebt.value}`
+      `http://localhost:3000/calculate/?num1=${event.target.currentSalary.value}`
     );
+    //&num2=${event.target.currentDebt.value} if want to add more
 
     const result = await res.json();
     console.log(result);
@@ -34,7 +35,7 @@ export const Form = () => {
             />{" "}
           </li>
 
-          <li>
+          {/* <li>
             <label htmlFor="currentDebt">Current Debt: </label>
             <input
               type="text"
@@ -42,7 +43,7 @@ export const Form = () => {
               name="currentDebt"
               id="currentDebt"
             />{" "}
-          </li>
+          </li> */}
 
           <button className={styles.button} type="submit">
             Calculate
@@ -50,7 +51,7 @@ export const Form = () => {
         </ul>
       </form>
 
-      <h1>Amount due over next 30 years: {dueSum}</h1>
+      <h1>Total Debt: {dueSum}</h1>
       {/* <h1>Above monthly Threshold {aboveMonthlyThreshold}</h1> */}
       {/* <h1>Debt Amount{debtCompound}</h1> */}
     </>
