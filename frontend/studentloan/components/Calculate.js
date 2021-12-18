@@ -4,21 +4,22 @@ import styles from "./Calculate.module.css";
 
 export const Form = () => {
   const [dueSum, setDueSum] = useState(0);
-  //const [aboveMonthlyThreshold, setaboveMonthlyThreshold] = useState(0);
-  // const [debtCompound, setdebtCompound] = useState(0)
+  const [yearsLeft, setyearsLeft] = useState(0);
+  const [finalYearOfPayment, setfinalYearOfPayment] = useState(0);
+
   const calculateSum = async (event) => {
     event.preventDefault();
 
     const res = await fetch(
-      `http://localhost:3000/calculate/?num1=${event.target.currentSalary.value}`
+      `http://localhost:3000/calculate/?num1=${event.target.currentSalary.value}&num2=${event.target.graduationYear.value}`
     );
     //&num2=${event.target.currentDebt.value} if want to add more
 
     const result = await res.json();
     console.log(result);
     setDueSum(result.dueSum);
-    //setaboveMonthlyThreshold(result.aboveMonthlyThreshold);
-    // setdebtCompound(result.debtCompound);
+    setyearsLeft(result.yearsLeft);
+    setfinalYearOfPayment(result.finalYearOfPayment);
   };
 
   return (
@@ -35,15 +36,15 @@ export const Form = () => {
             />{" "}
           </li>
 
-          {/* <li>
-            <label htmlFor="currentDebt">Current Debt: </label>
+          <li>
+            <label htmlFor="graduationYear">When did you graduate: </label>
             <input
-              type="text"
-              placeholder="50000"
-              name="currentDebt"
-              id="currentDebt"
+              type="number"
+              placeholder="yyyy"
+              name="graduationYear"
+              id="graduationYear"
             />{" "}
-          </li> */}
+          </li>
 
           <button className={styles.button} type="submit">
             Calculate
@@ -52,8 +53,8 @@ export const Form = () => {
       </form>
 
       <h1>Total Debt: {dueSum}</h1>
-      {/* <h1>Above monthly Threshold {aboveMonthlyThreshold}</h1> */}
-      {/* <h1>Debt Amount{debtCompound}</h1> */}
+      <h2>You have {yearsLeft} years left on your loan!</h2>
+      <h2>The final year of your loan is {finalYearOfPayment}!</h2>
     </>
   );
 };

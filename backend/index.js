@@ -5,6 +5,8 @@ const app = express();
 const yearlyThreshold = 27295;
 const monthlyThreshold = 2274;
 const interest = 0.09;
+const graduationYear = 2017;
+const currentYear = 2021;
 
 const calculateDebt = (salary) => {
   const currentSalary = parseInt(salary);
@@ -15,6 +17,20 @@ const calculateDebt = (salary) => {
   const dueSum = Math.round(yearlyInterest * 30);
 
   return { dueSum, aboveMonthlyThreshold };
+};
+
+//how many years left to replay Student Loan:
+const calculateYearsLeft = () => {
+  yearsSinceGraduation = currentYear - graduationYear;
+  yearsLeft = 30 - yearsSinceGraduation;
+
+  return yearsLeft;
+};
+
+const calculateFinalYear = () => {
+  finalYearOfPayment = yearsLeft + currentYear;
+
+  return finalYearOfPayment;
 };
 
 // adding this function to calculate compounded interest on debt
@@ -38,11 +54,16 @@ const calculateDebt = (salary) => {
 const calculations = (req, res) => {
   try {
     const { dueSum, aboveMonthlyThreshold } = calculateDebt(req.query.num1);
+    const yearsLeft = calculateYearsLeft(req.query.num2);
+    const finalYearOfPayment = calculateFinalYear(req.query.num2);
+    
     // const calculatedTax = tax(req.query.num1);
     // const debtIn30Years = debtCompound(req.query.num2);
     res.json({
       dueSum: dueSum,
       aboveMonthlyThreshold: aboveMonthlyThreshold,
+      yearsLeft: yearsLeft,
+      finalYearOfPayment: finalYearOfPayment,
     });
   } catch (err) {
     console.error(err);
@@ -55,6 +76,8 @@ app.get("/calculate", calculations);
 module.exports = {
   handler: serverless(app),
   calculateDebt: calculateDebt,
+  calculateYearsLeft: calculateYearsLeft,
+  calculateFinalYear: calculateFinalYear,
 };
 
 /***
