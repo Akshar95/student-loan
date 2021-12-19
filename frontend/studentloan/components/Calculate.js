@@ -33,7 +33,7 @@ export const Form = () => {
               placeholder="30000"
               name="currentSalary"
               id="currentSalary"
-            />{" "}
+            />
           </li>
 
           <li>
@@ -43,7 +43,7 @@ export const Form = () => {
               placeholder="yyyy"
               name="graduationYear"
               id="graduationYear"
-            />{" "}
+            />
           </li>
 
           <button className={styles.button} type="submit">
