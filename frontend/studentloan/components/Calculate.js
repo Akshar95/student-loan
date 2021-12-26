@@ -28,12 +28,7 @@ export const Form = () => {
         <ul className={styles.list}>
           <li>
             <label htmlFor="currentSalary">Current Salary: </label>
-            <input
-              type="text"
-              placeholder="30000"
-              name="currentSalary"
-              id="currentSalary"
-            />
+            <input type="text" name="currentSalary" id="currentSalary" />
           </li>
 
           <li>
@@ -43,6 +38,18 @@ export const Form = () => {
               placeholder="yyyy"
               name="graduationYear"
               id="graduationYear"
+              size="4"
+            />
+          </li>
+
+          <li>
+            <label htmlFor="currentLoanBalance">
+              Outstanding Loan Balance:{" "}
+            </label>
+            <input
+              type="text"
+              name="currentLoanBalance"
+              id="currentLoanBalance"
             />
           </li>
 
