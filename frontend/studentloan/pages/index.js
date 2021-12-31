@@ -1,27 +1,41 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 import { Form } from "../components/Calculate";
+import IndividualGrid from "../components/IndividualGrid";
 import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Student-Loan Calculator</title>
-        <meta
-          name="Student loan calculator"
-          content="Student loan calculator"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <div className="page-container">
+        <Head>
+          <title>Student-Loan Calculator</title>
+          <meta
+            name="Student loan calculator"
+            content="Student loan calculator"
+          />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <main className={styles.main}>
-      <Navbar />
-      
-        <Form />
-      </main>
+        <main>
+          <div className="navbar">
+            <Navbar />
+          </div>
+          <div className="text-container">
+            <IndividualGrid />
+          </div>
 
-      <footer className={styles.footer}></footer>
-    </div>
+          <Form />
+        </main>
+
+        <footer className="footer"></footer>
+      </div>
+      <style jsx>{`
+        .navbar {
+        }
+
+        @media (min-width: 768px) {
+        }
+      `}</style>
+    </>
   );
 }
