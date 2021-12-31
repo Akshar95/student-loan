@@ -1,34 +1,40 @@
 import React from "react";
 
-
-function IndividualGrid() {
+function IndividualGrid({
+  secondlyPayment,
+  minutePayment,
+  hourlyPayment,
+  dailyPayment,
+  monthlyInterest,
+  yearlyInterest,
+}) {
   return (
     <div>
       <>
         <div className="container">
           <div className="grid-1">
             <h3>Per Second</h3>
-            <p>12</p>
+            <p>{secondlyPayment}</p>
           </div>
           <div className="grid-2">
             <h3>Per Minute</h3>
-            <p>12</p>
+            <p>{minutePayment}</p>
           </div>
           <div className="grid-3">
             <h3>Per Hour</h3>
-            <p>12</p>
+            <p>{hourlyPayment}</p>
           </div>
           <div className="grid-4">
             <h3>Per Day</h3>
-            <p>12</p>
+            <p>{dailyPayment}</p>
           </div>
           <div className="grid-4">
             <h3>Per Month</h3>
-            <p>12</p>
+            <p>{monthlyInterest}</p>
           </div>
           <div className="grid-4">
             <h3>Per Year</h3>
-            <p>12</p>
+            <p>{yearlyInterest}</p>
           </div>
         </div>
 
@@ -89,7 +95,7 @@ function IndividualGrid() {
             text-align: center;
           }
 
-          @media (min-width: 850px) {
+          @media (min-width: 900px) {
             .container {
               display: grid;
               grid-gap: 10px;

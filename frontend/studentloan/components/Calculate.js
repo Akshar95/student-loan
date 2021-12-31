@@ -1,10 +1,17 @@
 import React from "react";
 import { useState } from "react";
+import IndividualGrid from "./IndividualGrid";
 
 export const Form = () => {
   const [dueSum, setDueSum] = useState(0);
   const [yearsLeft, setyearsLeft] = useState(0);
   const [finalYearOfPayment, setfinalYearOfPayment] = useState(0);
+  const [secondlyPayment, setsecondlyPayment] = useState(0);
+  const [minutePayment, setminutePayment] = useState(0);
+  const [hourlyPayment, sethourlyPayment] = useState(0);
+  const [dailyPayment, setdailyPayment] = useState(0);
+  const [monthlyInterest, setmonthlyInterest] = useState(0);
+  const [yearlyInterest, setyearlyInterest] = useState(0)
 
   const calculateSum = async (event) => {
     event.preventDefault();
@@ -15,16 +22,29 @@ export const Form = () => {
     //&num2=${event.target.currentDebt.value} if want to add more
 
     const result = await res.json();
-    console.log(result);
     setDueSum(result.dueSum);
     setyearsLeft(result.yearsLeft);
     setfinalYearOfPayment(result.finalYearOfPayment);
+    setsecondlyPayment(result.secondlyPayment);
+    setminutePayment(result.minutePayment);
+    sethourlyPayment(result.hourlyPayment);
+    setdailyPayment(result.dailyPayment);
+    setmonthlyInterest(result.monthlyInterest);
+    setyearlyInterest(result.yearlyInterest)
   };
 
   return (
     <>
       <form onSubmit={calculateSum}>
-        <ul className='list'>
+        <IndividualGrid
+          secondlyPayment={secondlyPayment}
+          minutePayment={minutePayment}
+          hourlyPayment={hourlyPayment}
+          dailyPayment={dailyPayment}
+          monthlyInterest={monthlyInterest}
+          yearlyInterest={yearlyInterest}
+        />
+        <ul className="list">
           <li>
             <label htmlFor="currentSalary">Current Salary: </label>
             <input type="text" name="currentSalary" id="currentSalary" />
@@ -52,7 +72,7 @@ export const Form = () => {
             />
           </li>
 
-          <button className='button' type="submit">
+          <button className="button" type="submit">
             Calculate
           </button>
         </ul>
@@ -80,7 +100,6 @@ export const Form = () => {
         }
 
         @media (min-width: 768px) {
-
         }
       `}</style>
     </>

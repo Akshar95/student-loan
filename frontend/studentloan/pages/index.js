@@ -20,9 +20,6 @@ export default function Home() {
           <div className="navbar">
             <Navbar />
           </div>
-          <div className="text-container">
-            <IndividualGrid />
-          </div>
 
           <Form />
         </main>

@@ -14,9 +14,22 @@ const calculateDebt = (salary) => {
   const aboveMonthlyThreshold = monthlySalary - monthlyThreshold;
   const monthlyInterest = aboveMonthlyThreshold * interest;
   const yearlyInterest = monthlyInterest * 12; //update this in next version
+  const dailyPayment = monthlyInterest / 30;
+  const hourlyPayment = dailyPayment / 24;
+  const minutePayment = hourlyPayment / 60;
+  const secondlyPayment = minutePayment / 60;
   const dueSum = Math.round(yearlyInterest * 30);
 
-  return { dueSum, aboveMonthlyThreshold };
+  return {
+    dueSum,
+    aboveMonthlyThreshold,
+    monthlyInterest,
+    yearlyInterest,
+    dailyPayment,
+    hourlyPayment,
+    minutePayment,
+    secondlyPayment,
+  };
 };
 
 //how many years left to replay Student Loan:
@@ -53,15 +66,30 @@ const calculateFinalYear = () => {
 
 const calculations = (req, res) => {
   try {
-    const { dueSum, aboveMonthlyThreshold } = calculateDebt(req.query.num1);
+    const {
+      dueSum,
+      aboveMonthlyThreshold,
+      monthlyInterest,
+      yearlyInterest,
+      dailyPayment,
+      hourlyPayment,
+      minutePayment,
+      secondlyPayment,
+    } = calculateDebt(req.query.num1);
     const yearsLeft = calculateYearsLeft(req.query.num2);
     const finalYearOfPayment = calculateFinalYear(req.query.num2);
-    
+
     // const calculatedTax = tax(req.query.num1);
     // const debtIn30Years = debtCompound(req.query.num2);
     res.json({
       dueSum: dueSum,
       aboveMonthlyThreshold: aboveMonthlyThreshold,
+      monthlyInterest: monthlyInterest,
+      yearlyInterest: yearlyInterest,
+      dailyPayment: dailyPayment,
+      hourlyPayment: hourlyPayment,
+      minutePayment: minutePayment,
+      secondlyPayment: secondlyPayment,
       yearsLeft: yearsLeft,
       finalYearOfPayment: finalYearOfPayment,
     });
