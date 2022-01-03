@@ -14,27 +14,27 @@ function IndividualGrid({
         <div className="container">
           <div className="grid-1">
             <h3>Per Second</h3>
-            <p>{secondlyPayment}</p>
+            <p>£{Math.round(secondlyPayment)}</p>
           </div>
           <div className="grid-2">
             <h3>Per Minute</h3>
-            <p>{minutePayment}</p>
+            <p>£{minutePayment}</p>
           </div>
           <div className="grid-3">
             <h3>Per Hour</h3>
-            <p>{hourlyPayment}</p>
+            <p>£{hourlyPayment}</p>
           </div>
           <div className="grid-4">
             <h3>Per Day</h3>
-            <p>{dailyPayment}</p>
+            <p>£{dailyPayment}</p>
           </div>
           <div className="grid-4">
             <h3>Per Month</h3>
-            <p>{monthlyInterest}</p>
+            <p>£{monthlyInterest}</p>
           </div>
           <div className="grid-4">
             <h3>Per Year</h3>
-            <p>{yearlyInterest}</p>
+            <p>£{yearlyInterest}</p>
           </div>
         </div>
 
