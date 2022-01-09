@@ -6,8 +6,18 @@ provider:
   stage: dev
   region: eu-west-2
 
+plugins:
+  - serverless-offline
+
 functions:
   app:
     handler: index.handler
     events:
-      - http: ANY /
+      - http:
+           path: /calculate
+           method: GET
+
+custom:
+  serverless-offline:
+    noPrependStageInUrl: true
+
