@@ -20,7 +20,7 @@ export default function Home() {
           <div className="navbar">
             <Navbar />
           </div>
-
+         
           <Form />
         </main>
 

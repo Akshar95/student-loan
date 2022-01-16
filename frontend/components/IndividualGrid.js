@@ -41,8 +41,8 @@ function IndividualGrid({
         <style jsx>{`
           .container {
             display: grid;
-            margin: 10px 10px 0;
-            grid-template-columns: repeat(auto-fill, 200px);
+            margin: 10px 50px 0;
+            grid-template-columns: repeat(2, 1fr);
             justify-content: center;
             color: white;
           }
@@ -74,9 +74,9 @@ function IndividualGrid({
           @media (min-width: 900px) {
             .container {
               display: grid;
-
-              grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+              grid-template-columns: repeat(3, 1fr);
               justify-content: center;
+              
             }
           }
         `}</style>
