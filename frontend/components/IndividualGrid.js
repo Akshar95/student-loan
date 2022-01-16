@@ -28,11 +28,11 @@ function IndividualGrid({
             <h3>Per Day</h3>
             <p>£{dailyPayment}</p>
           </div>
-          <div className="grid-4">
+          <div className="grid-5">
             <h3>Per Month</h3>
             <p>£{monthlyInterest}</p>
           </div>
-          <div className="grid-4">
+          <div className="grid-6">
             <h3>Per Year</h3>
             <p>£{yearlyInterest}</p>
           </div>
@@ -42,63 +42,39 @@ function IndividualGrid({
           .container {
             display: grid;
             margin: 10px 10px 0;
-            grid-gap: 10px;
             grid-template-columns: repeat(auto-fill, 200px);
             justify-content: center;
+            color: white;
           }
           .grid-1 {
-            border-style: solid;
-            border-color: red;
-            background-color: white;
+            background-color: #04225b;
             text-align: center;
           }
           .grid-2 {
-            border-style: solid;
-            border-color: red;
-            background-color: white;
+            background-color: #0c2c69;
             text-align: center;
           }
           .grid-3 {
-            border-style: solid;
-            border-color: red;
-            background-color: white;
+            background-color: #1a3e7d;
             text-align: center;
           }
           .grid-4 {
-            border-style: solid;
-            border-color: red;
-            background-color: white;
-            text-align: center;
-          }
-          .grid-4 {
-            border-style: solid;
-            border-color: red;
-            background-color: white;
-            text-align: center;
-          }
-          .grid-4 {
-            border-style: solid;
-            border-color: red;
-            background-color: white;
+            background-color: #264d91;
             text-align: center;
           }
           .grid-5 {
-            border-style: solid;
-            border-color: red;
-            background-color: white;
+            background-color: #335da6;
             text-align: center;
           }
           .grid-6 {
-            border-style: solid;
-            border-color: red;
-            background-color: white;
+            background-color: #426fbd;
             text-align: center;
           }
 
           @media (min-width: 900px) {
             .container {
               display: grid;
-              grid-gap: 10px;
+
               grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
               justify-content: center;
             }

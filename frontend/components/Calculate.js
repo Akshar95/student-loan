@@ -11,7 +11,7 @@ export const Form = () => {
   const [hourlyPayment, sethourlyPayment] = useState(0);
   const [dailyPayment, setdailyPayment] = useState(0);
   const [monthlyInterest, setmonthlyInterest] = useState(0);
-  const [yearlyInterest, setyearlyInterest] = useState(0)
+  const [yearlyInterest, setyearlyInterest] = useState(0);
 
   const calculateSum = async (event) => {
     event.preventDefault();
@@ -30,12 +30,35 @@ export const Form = () => {
     sethourlyPayment(result.hourlyPayment);
     setdailyPayment(result.dailyPayment);
     setmonthlyInterest(result.monthlyInterest);
-    setyearlyInterest(result.yearlyInterest)
+    setyearlyInterest(result.yearlyInterest);
   };
 
   return (
     <>
       <form onSubmit={calculateSum}>
+        <div className="inputs">
+          <label htmlFor="currentSalary">Current Salary: </label>
+          <input type="text" name="currentSalary" id="currentSalary" />
+          <label htmlFor="graduationYear">When did you graduate: </label>
+          <input
+            type="number"
+            placeholder="yyyy"
+            name="graduationYear"
+            id="graduationYear"
+            size="4"
+          />
+          <label htmlFor="currentLoanBalance">Outstanding Loan Balance: </label>
+          <input
+            type="text"
+            name="currentLoanBalance"
+            id="currentLoanBalance"
+          />
+        </div>
+
+        <button className="button" type="submit">
+          Calculate
+        </button>
+
         <IndividualGrid
           secondlyPayment={secondlyPayment}
           minutePayment={minutePayment}
@@ -44,38 +67,6 @@ export const Form = () => {
           monthlyInterest={monthlyInterest}
           yearlyInterest={yearlyInterest}
         />
-        <ul className="list">
-          <li>
-            <label htmlFor="currentSalary">Current Salary: </label>
-            <input type="text" name="currentSalary" id="currentSalary" />
-          </li>
-
-          <li>
-            <label htmlFor="graduationYear">When did you graduate: </label>
-            <input
-              type="number"
-              placeholder="yyyy"
-              name="graduationYear"
-              id="graduationYear"
-              size="4"
-            />
-          </li>
-
-          <li>
-            <label htmlFor="currentLoanBalance">
-              Outstanding Loan Balance:{" "}
-            </label>
-            <input
-              type="text"
-              name="currentLoanBalance"
-              id="currentLoanBalance"
-            />
-          </li>
-
-          <button className="button" type="submit">
-            Calculate
-          </button>
-        </ul>
       </form>
 
       <h1>Total Debt: {dueSum}</h1>
@@ -83,23 +74,28 @@ export const Form = () => {
       <h2>The final year of your loan is {finalYearOfPayment}!</h2>
 
       <style jsx>{`
-        .list {
-          color: red;
-          list-style: none;
+        .inputs {
+          display: inline-grid;
+          grid-template-columns: 1fr 1fr;
+          color: #04225b;
           font-weight: bold;
+          text-align: right;
+        
         }
-
         .button {
-          background-color: #4caf50;
+          background-color: #426fbd;
           border: none;
           color: white;
-          padding: 8px 100px;
-          display: inline-block;
-          text-align: center;
+          margin: auto;
+          padding: 8px 50px;
           font-size: large;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
         }
 
-        @media (min-width: 768px) {
+        #currentSalary:focus {
+          background-color: lightblue;
         }
       `}</style>
     </>

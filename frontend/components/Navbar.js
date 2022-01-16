@@ -3,17 +3,26 @@ import React from "react";
 function Navbar() {
   return (
     <>
-      <h1 className="Header"> How much does your Student Loan cost you?</h1>
+    <div className="headers">
+      <h1 className="main-header"> Student Loan Calculator</h1>
+      <h2 className="sub-header">Find out much your student loan is costing you</h2>
+
+    </div>
       <style jsx>{`
-        .Header {
+        .headers {
           margin: 0;
-          padding: 20px;
-          background-color: #a0c5ff;
+          padding: 30px;
+          background-color: white;
           font-weight: 700;
-          line-height: 18px;
           letter-spacing: 0px;
-          text-align: left;
-          border-bottom: 5px solid blue;
+          text-align: center;
+        }
+        .main-header{
+          color: #04225b;
+
+        }
+        .sub-header{
+          color: #f85c04;
         }
 
         @media (min-width: 768px) {
