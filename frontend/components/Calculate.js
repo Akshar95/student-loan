@@ -75,10 +75,10 @@ export const Form = () => {
               id="currentLoanBalance"
             />
           </div>
+          <button className="button" type="submit">
+            Calculate
+          </button>
         </div>
-        <button className="button" type="submit">
-          Calculate
-        </button>
       </form>
       <h1>Total Debt: {dueSum}</h1>
       <h2>You have {yearsLeft} years left on your loan!</h2>
@@ -97,7 +97,7 @@ export const Form = () => {
           width: 95%;
           background-color: white;
           color: #04225b;
-          font-weight: bold;
+          font-size: 14px;
           margin: 0 auto;
           box-shadow: #3b4753 0px 10px 13px -7px;
         }
@@ -114,6 +114,31 @@ export const Form = () => {
           background: transparent;
           border-bottom: 1px solid #f0f0f0;
           border-radius: 2px 2px 0 0;
+        }
+        input[type="text"],
+        input[type="number"],
+        select {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 1.5px;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          font-size: 16px;
+        }
+        .resident {
+          margin: 10px;
+        }
+        input[type="submit"] {
+          width: 100%;
+          background-color: #04aa6d;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
         }
         .button {
           background-color: #426fbd;
