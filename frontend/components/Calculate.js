@@ -82,9 +82,11 @@ export const Form = () => {
           </button>
         </div>
       </form>
-      <h1>Total Debt: {dueSum}</h1>
-      <h2>You have {yearsLeft} years left on your loan!</h2>
-      <h2>The final year of your loan is {finalYearOfPayment}!</h2>
+      <div className="text">
+        <h1>Total Debt: {dueSum}</h1>
+        <h2>You have {yearsLeft} years left on your loan!</h2>
+        <h2>The final year of your loan is {finalYearOfPayment}!</h2>
+      </div>
       <IndividualGrid
         secondlyPayment={secondlyPayment}
         minutePayment={minutePayment}
@@ -118,9 +120,18 @@ export const Form = () => {
           border-bottom: 1px solid #f0f0f0;
           border-radius: 2px 2px 0 0;
         }
-        input[type="text"],
-        input[type="number"],
         select {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 1.5px;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          font-size: 16px;
+        }
+        input[type="text"],
+        input[type="number"] {
           width: 100%;
           padding: 12px 20px;
           margin: 8px 1.5px;
@@ -154,9 +165,20 @@ export const Form = () => {
           display: flex;
           justify-content: center;
         }
-
         #currentSalary:focus {
           background-color: lightblue;
+        }
+        .currentSalary {
+          margin: 10px;
+        }
+        .graduationYear {
+          margin: 10px;
+        }
+        .currentLoanBalance {
+          margin: 10px;
+        }
+        .text {
+          text-align: center;
         }
         @media (min-width: 768px) {
           .container {
