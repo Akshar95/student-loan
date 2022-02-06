@@ -20,7 +20,6 @@ export const Form = () => {
     const res = await fetch(
       `http://localhost:3000/calculate/?num1=${event.target.currentSalary.value}&num2=${event.target.graduationYear.value}`
     );
-    //&num2=${event.target.currentDebt.value} if want to add more
 
     const result = await res.json();
     setDueSum(result.dueSum);
