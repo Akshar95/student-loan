@@ -6,7 +6,7 @@ function Navbar() {
       <div className="headers">
         <h1 className="main-header"> Student Loan Calculator</h1>
         <h2 className="sub-header">
-          Find out much your student loan is costing you
+          Find out how much your student loan is costing you
         </h2>
       </div>
       <style jsx>{`

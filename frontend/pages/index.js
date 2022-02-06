@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Form } from "../components/Calculate";
-import IndividualGrid from "../components/IndividualGrid";
 import Navbar from "../components/Navbar";
 
 export default function Home() {
@@ -20,7 +19,7 @@ export default function Home() {
           <div className="navbar">
             <Navbar />
           </div>
-         
+
           <Form />
         </main>
 
