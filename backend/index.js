@@ -13,7 +13,7 @@ const calculateDebt = (salary) => {
   const monthlySalary = currentSalary / 12;
   const aboveMonthlyThreshold = monthlySalary - monthlyThreshold;
   const monthlyInterest = aboveMonthlyThreshold * interest;
-  const yearlyInterest = monthlyInterest * 12; //update this in next version
+  const yearlyInterest = monthlyInterest * 12;
   const dailyPayment = monthlyInterest / 30;
   const hourlyPayment = dailyPayment / 24;
   const minutePayment = hourlyPayment / 60;
@@ -32,7 +32,6 @@ const calculateDebt = (salary) => {
   };
 };
 
-//how many years left to replay Student Loan:
 const calculateYearsLeft = () => {
   yearsSinceGraduation = currentYear - graduationYear;
   yearsLeft = 30 - yearsSinceGraduation;
@@ -45,24 +44,6 @@ const calculateFinalYear = () => {
 
   return finalYearOfPayment;
 };
-
-// adding this function to calculate compounded interest on debt
-// const debtCompound = (currentDebt) => {
-//   const debtIn30Years = currentDebt * 30;
-
-//   return debtIn30Years;
-// };
-
-// const tax = (currentSalary) => {
-//   const personalAllowance = 12570;
-//   const taxableIncome = currentSalary - personalAllowance;
-//   if (taxableIncome > 0 && taxableIncome <= 37700) {
-//     return taxableIncome * 0.2;
-//   } else if (taxableIncome > 37700) {
-//     return 37700 * 0.2 + (taxableIncome - 37700) * 0.4;
-//   }
-//   return 0;
-// };
 
 const calculations = (req, res) => {
   try {
@@ -79,8 +60,6 @@ const calculations = (req, res) => {
     const yearsLeft = calculateYearsLeft(req.query.num2);
     const finalYearOfPayment = calculateFinalYear(req.query.num2);
 
-    // const calculatedTax = tax(req.query.num1);
-    // const debtIn30Years = debtCompound(req.query.num2);
     res.json({
       dueSum: dueSum,
       aboveMonthlyThreshold: aboveMonthlyThreshold,
@@ -108,10 +87,4 @@ module.exports = {
   calculateFinalYear: calculateFinalYear,
 };
 
-/***
- * query parameter
- * json body in api
- * search request headers/api headers
- * serverless offline
- *
- */
+
