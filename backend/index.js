@@ -2,7 +2,6 @@ const serverless = require("serverless-http");
 const express = require("express");
 const app = express();
 
-const yearlyThreshold = 27295;
 const monthlyThreshold = 2274;
 const interest = 0.09;
 const graduationYear = 2017;
@@ -14,6 +13,7 @@ const calculateDebt = (salary) => {
   const aboveMonthlyThreshold = monthlySalary - monthlyThreshold;
   const monthlyInterest = aboveMonthlyThreshold * interest;
   const yearlyInterest = monthlyInterest * 12;
+  const weeklyPayment = monthlyInterest/4;
   const dailyPayment = monthlyInterest / 30;
   const hourlyPayment = dailyPayment / 24;
   const minutePayment = hourlyPayment / 60;
@@ -25,6 +25,7 @@ const calculateDebt = (salary) => {
     aboveMonthlyThreshold,
     monthlyInterest,
     yearlyInterest,
+    weeklyPayment,
     dailyPayment,
     hourlyPayment,
     minutePayment,
@@ -52,6 +53,7 @@ const calculations = (req, res) => {
       aboveMonthlyThreshold,
       monthlyInterest,
       yearlyInterest,
+      weeklyPayment,
       dailyPayment,
       hourlyPayment,
       minutePayment,
@@ -65,6 +67,7 @@ const calculations = (req, res) => {
       aboveMonthlyThreshold: aboveMonthlyThreshold,
       monthlyInterest: monthlyInterest,
       yearlyInterest: yearlyInterest,
+      weeklyPayment: weeklyPayment,
       dailyPayment: dailyPayment,
       hourlyPayment: hourlyPayment,
       minutePayment: minutePayment,
@@ -86,5 +89,3 @@ module.exports = {
   calculateYearsLeft: calculateYearsLeft,
   calculateFinalYear: calculateFinalYear,
 };
-
-

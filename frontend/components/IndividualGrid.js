@@ -5,6 +5,7 @@ function IndividualGrid({
   minutePayment,
   hourlyPayment,
   dailyPayment,
+  weeklyPayment,
   monthlyInterest,
   yearlyInterest,
 }) {
@@ -13,28 +14,28 @@ function IndividualGrid({
       <>
         <div className="container">
           <div className="grid-1">
-            <h3>Per Second</h3>
-            <p>£{Math.round(secondlyPayment)}</p>
-          </div>
-          <div className="grid-2">
             <h3>Per Minute</h3>
-            <p>£{minutePayment}</p>
+            <p>£{Math.round(minutePayment)}</p>
+          </div>
+          <div className="grid-1">
+            <h3>Per Hour</h3>
+            <p>£{Math.round(hourlyPayment)}</p>
           </div>
           <div className="grid-3">
-            <h3>Per Hour</h3>
-            <p>£{hourlyPayment}</p>
+            <h3>Per Day</h3>
+            <p>£{Math.round(dailyPayment)}</p>
           </div>
           <div className="grid-4">
-            <h3>Per Day</h3>
-            <p>£{dailyPayment}</p>
+            <h3>Per Week</h3>
+            <p>£{Math.round(weeklyPayment)}</p>
           </div>
           <div className="grid-5">
             <h3>Per Month</h3>
-            <p>£{monthlyInterest}</p>
+            <p>£{Math.round(monthlyInterest)}</p>
           </div>
           <div className="grid-6">
             <h3>Per Year</h3>
-            <p>£{yearlyInterest}</p>
+            <p>£{Math.round(yearlyInterest)}</p>
           </div>
         </div>
 
@@ -76,7 +77,6 @@ function IndividualGrid({
               display: grid;
               grid-template-columns: repeat(3, 1fr);
               justify-content: center;
-              
             }
           }
         `}</style>

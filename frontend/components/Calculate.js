@@ -10,6 +10,7 @@ export const Form = () => {
   const [minutePayment, setminutePayment] = useState(0);
   const [hourlyPayment, sethourlyPayment] = useState(0);
   const [dailyPayment, setdailyPayment] = useState(0);
+  const [weeklyPayment, setweeklyPayment] = useState(0);
   const [monthlyInterest, setmonthlyInterest] = useState(0);
   const [yearlyInterest, setyearlyInterest] = useState(0);
 
@@ -29,6 +30,7 @@ export const Form = () => {
     setminutePayment(result.minutePayment);
     sethourlyPayment(result.hourlyPayment);
     setdailyPayment(result.dailyPayment);
+    setweeklyPayment(result.weeklyPayment);
     setmonthlyInterest(result.monthlyInterest);
     setyearlyInterest(result.yearlyInterest);
   };
@@ -88,6 +90,7 @@ export const Form = () => {
         minutePayment={minutePayment}
         hourlyPayment={hourlyPayment}
         dailyPayment={dailyPayment}
+        weeklyPayment={weeklyPayment}
         monthlyInterest={monthlyInterest}
         yearlyInterest={yearlyInterest}
       />
